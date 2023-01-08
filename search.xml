@@ -105,6 +105,9 @@
 <p>原因：.h文件路径找不到。具体找不到的原因有很多种。<br>可能pods 的头文件找不到<br>#import “Reachability.h”找不到<br>首先找到下面配置文件：<br>Reachability-Private.xcconfig<br> 查看里面内容：<br>#include “Reachability.xcconfig”<br>GCC_PREPROCESSOR_DEFINITIONS &#x3D; $(inherited) COCOAPODS&#x3D;1<br>HEADER_SEARCH_PATHS &#x3D; “${PODS_ROOT}&#x2F;Headers&#x2F;Private” “${PODS_ROOT}&#x2F;Headers&#x2F;Private&#x2F;Reachability” “${PODS_ROOT}&#x2F;Headers&#x2F;Public” “${PODS_ROOT}&#x2F;Headers&#x2F;Public&#x2F;MKNetworkKit” “${PODS_ROOT}&#x2F;Headers&#x2F;Public&#x2F;MKNetworkKit&#x2F;Categories” “${PODS_ROOT}&#x2F;Headers&#x2F;Public&#x2F;Reachability”<br>OTHER_LDFLAGS &#x3D; ${REACHABILITY_OTHER_LDFLAGS}<br>PODS_ROOT &#x3D; ${SRCROOT}<br>SKIP_INSTALL &#x3D; YES<br>上面标红的地址，去文件夹看看相应路径是否存在该文件，经常是在别的文件夹下面。</p>
 <p><em>整理参考<br>链接 ：</em><br><a href="https://wincent.com/wiki/%40executable_path%2C_%40load_path_and_%40rpath">https:&#x2F;&#x2F;wincent.com&#x2F;wiki&#x2F;@executable_path,<em>@load_path_and</em>@rpath</a><br><a href="https://www.suninf.net/2015/06/xcode-build-and-paths-config.html">https://www.suninf.net/2015/06/xcode-build-and-paths-config.html</a><br><a href="https://blog.csdn.net/u011146511/article/details/77198330">https://blog.csdn.net/u011146511/article/details/77198330</a></p>
 ]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
       <tags>
         <tag>Xcode</tag>
       </tags>
@@ -121,6 +124,9 @@
 
 <iframe src="//player.bilibili.com/player.html?aid=519986107&bvid=BV1Lg411s7G1&cid=954547920&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 ]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
       <tags>
         <tag>ssh</tag>
       </tags>
@@ -144,6 +150,9 @@
 <p>如果合并时报错 No ‘swiftinterface’ files found within ‘…&#x2F;xxxx.framework&#x2F;Modules&#x2F;xxxx.swiftmodule’<br>使用以上命令合并的framework 需要在Xcode 里，将targets -&gt; build Settings 中 BUILD_LIBRARY_FOR_DISTRIBUTION 设置为YES 。<br>这样build出的framework才能用以上命令合并成功。</p>
 <p>静态.a 文件的合并</p>
 ]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
       <tags>
         <tag>iOS</tag>
       </tags>
