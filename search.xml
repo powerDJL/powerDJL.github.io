@@ -191,4 +191,40 @@
         <tag>next</tag>
       </tags>
   </entry>
+  <entry>
+    <title>制作flutter项目的插件</title>
+    <url>/2023/01/08/%E5%88%B6%E4%BD%9Cflutter%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%8F%92%E4%BB%B6/</url>
+    <content><![CDATA[<p>以为bigfun flutter 项目为例，完成一个登录的插件的制作过程插件功能：为bigfun flutter项目提供登录能力。（由于登录部分为主站提供的原生SDK，所以将这部分打包成为一个flutter的插件，为flutter项目提供登录功能）重点在原生与dart之间的交互，例子中都使用MethodChannel来实现交互。</p>
+<p>前期准备：主站提供的登录相关SDK有几十个静态.a文件和几十个头文件组成，提供登录及web网页的支付功能。</p>
+<p>以iOS 项目为例，开发工具为<strong>Android Studio</strong>和<strong>Xcode</strong>。</p>
+<ol>
+<li>新建一个flutter project ，选择plugin类型。<br><em>平台语言可以根据需要选择。</em></li>
+</ol>
+<p><img data-src="https://s2.loli.net/2023/01/08/zHuBxil2yVoTO3d.png" alt="1"></p>
+<p><img data-src="https://s2.loli.net/2023/01/08/nluUzImM6GphoQK.png" alt="2"></p>
+<p>2、添加原生部分代码，和前期准备好的SDK。<br>在BilibiliLoginPlugin中，去实现原生对应的调用逻辑。在 bilibili_login.dart 中实现dart部分的调用逻辑，他们之间用MethodChannel 通讯</p>
+<p><img data-src="https://s2.loli.net/2023/01/08/3Yf9mxzaksSpJXL.png" alt="3"></p>
+<p>3、中找到  **. podspec 文件进行配置<br>根据实际情况添加</p>
+<blockquote>
+<p>s.public_header_files &#x3D; ‘Classes&#x2F;<strong>&#x2F;*.h’s.vendored_libraries &#x3D; ‘Classes&#x2F;</strong>&#x2F;*.a’<br>s.static_framework &#x3D; true<br>#如果需要依赖第三方库，可以添加类似以下的语句，pod会自动安装依赖s.dependency ‘Flutter’</p>
+</blockquote>
+<p>4、flutter plugin 本地调用。需要在调用项目的pubspec.yaml文件里添加。根据插件所在位置输入正确的path。以下为例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">dependencies:  </span><br><span class="line">  flutter:    </span><br><span class="line">    sdk: flutter</span><br><span class="line">  bilibili_login:    </span><br><span class="line">    path: ../</span><br></pre></td></tr></table></figure>
+<h6 id="以下是测试插件的可用性"><a href="#以下是测试插件的可用性" class="headerlink" title="以下是测试插件的可用性"></a>以下是测试插件的可用性</h6><p>1、在终端命令行进入example 目录的ios文件夹。运行  pod install。<br>接下来需要在Xcode中进行一些设置<br>a.用Xcode打开Runner.xcworkspace。<br>b.添加必要的系统framework，这些都是登录SDK需要的。</p>
+<p><img data-src="https://s2.loli.net/2023/01/08/UDWncz6qTxZwPgA.png" alt="4"></p>
+<p>c.正确设置开发者账号信息</p>
+<p><img data-src="https://s2.loli.net/2023/01/08/D3dHtE2BmKkxZlu.png" alt="5"></p>
+<p>2、设置完成后，转到Android Studio ，在example项目中可以修改main.dart导入插件</p>
+<figure class="highlight dart"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&#x27;package:bilibili_login/bilibili_login.dart&#x27;</span>; </span><br></pre></td></tr></table></figure>
+<p>修改代码，加入调用测试的部分。<br>在调用测试之前，需要在插件的 dart文件中实现需要调用的方法。现在可以在 Android Studio或者Xcode中 运行项目 进行测试，调试。</p>
+<p>至此，一个插件基本制作就完成了。如果不引用静态sdk，设置会简单很多。</p>
+<p>参考文档：</p>
+<blockquote>
+<p><a href="https://docs.flutter.dev/development/packages-and-plugins/developing-packages">https://docs.flutter.dev/development/packages-and-plugins/developing-packages</a><br><a href="https://docs.flutter.dev/development/add-to-app/ios/project-setup#local-network-privacy-permissions">https://docs.flutter.dev/development/add-to-app/ios/project-setup#local-network-privacy-permissions</a><br><a href="https://blog.csdn.net/meegomeego/article/details/19343423">https://blog.csdn.net/meegomeego/article/details/19343423</a><br><a href="https://developer.apple.com/library/archive/qa/qa1490/_index.html">https://developer.apple.com/library/archive/qa/qa1490/_index.html</a></p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>flutter</tag>
+      </tags>
+  </entry>
 </search>
