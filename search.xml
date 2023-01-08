@@ -3,7 +3,9 @@
   <entry>
     <title>Xcode中库的路径问题</title>
     <url>/2023/01/05/Xcode%E4%B8%AD%E5%BA%93%E7%9A%84%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<p><img data-src="https://s2.loli.net/2023/01/06/KFihSgu6wZ1XN5B.png"></p>
+    <content><![CDATA[<p><img data-src="https://s2.loli.net/2023/01/06/KFihSgu6wZ1XN5B.png"><br>主要介绍了各种路径标识的具体含义，还有遇到的常见问题</p>
+<span id="more"></span>
+
 <h5 id="Absolute-paths"><a href="#Absolute-paths" class="headerlink" title="Absolute paths"></a>Absolute paths</h5><p>Useful for frameworks installed in shared locations. Example:<br>Install path: &#x2F;Library&#x2F;Frameworks&#x2F;Foo.framework&#x2F;Versions&#x2F;A&#x2F;Foo</p>
 <h5 id="executable-path"><a href="#executable-path" class="headerlink" title="@executable_path"></a>@executable_path</h5><p><strong>-这个变量表示可执行程序所在的目录.</strong></p>
 <p>Useful for frameworks embedded inside applications, because it allows you to specify the location of the framework relative to the application’s executable:</p>
@@ -117,6 +119,8 @@
     <url>/2023/01/05/ssh-rsa%E9%AA%8C%E8%AF%81%E5%A4%B1%E8%B4%A5-no-mutual-signature-algorithm/</url>
     <content><![CDATA[<p>用ssh访问gitlab时出现错误,反复检查发现publickey没有问题。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git@ops-gitlab.xxxx.com: Permission denied (publickey).</span><br><span class="line">fatal: Could not read from remote repository.</span><br><span class="line"></span><br><span class="line">Please make sure you have the correct access rights</span><br><span class="line">and the repository exists.</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+
 <p><strong>定位ssh错误</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-&gt;ssh -Tvvv git@ops-gitlab.xxxx.com</span><br><span class="line">...</span><br><span class="line">debug1: send_pubkey_test: no mutual signature algorithm</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 <p>openssh默认不再支持ssh-rsa算法啦，说是该算法存在安全隐患， 具体可以看看这个新闻：<a href="https://www.zdnet.com/article/openssh-to-deprecate-sha-1-logins-due-to-security-risk/">OpenSSH to deprecate SHA-1 logins due to security risk | ZDNet</a><br>当然我们可以重新启用ssh-rsa,但存在安全风险。</p>
@@ -134,7 +138,10 @@
   <entry>
     <title>iOS framework分离与合并</title>
     <url>/2023/01/05/iOS-framework%E5%88%86%E7%A6%BB%E4%B8%8E%E5%90%88%E5%B9%B6/</url>
-    <content><![CDATA[<p><strong>framwork</strong>的开发人员可为了方便打包与发行，常常将i386,x86_64,armv7,arm64多种模式混合起来一起打包<br><strong>Xcode 11</strong> 之前<br>查看framwork有包含几种架构</p>
+    <content><![CDATA[<p><strong>framwork</strong>的开发人员可为了方便打包与发行，常常将i386,x86_64,armv7,arm64多种模式混合起来一起打包</p>
+<span id="more"></span>
+
+<p><strong>Xcode 11</strong> 之前<br>查看framwork有包含几种架构</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">lipo -info xxx.framework/xxxxFramework</span><br></pre></td></tr></table></figure>
 <p>合并两个framework的架构，如果有包含重复的架构，会合并失败。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">lipo -create XXXX.framework/XXXX-armv7 XXXX.framework/XXXX-arm64 -output XXXX.framework/XXXX</span><br></pre></td></tr></table></figure>
@@ -204,6 +211,8 @@
     <title>制作flutter项目的插件</title>
     <url>/2023/01/08/%E5%88%B6%E4%BD%9Cflutter%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%8F%92%E4%BB%B6/</url>
     <content><![CDATA[<p>以为bigfun flutter 项目为例，完成一个登录的插件的制作过程插件功能：为bigfun flutter项目提供登录能力。（由于登录部分为主站提供的原生SDK，所以将这部分打包成为一个flutter的插件，为flutter项目提供登录功能）重点在原生与dart之间的交互，例子中都使用MethodChannel来实现交互。</p>
+<span id="more"></span>
+
 <p>前期准备：主站提供的登录相关SDK有几十个静态.a文件和几十个头文件组成，提供登录及web网页的支付功能。</p>
 <p>以iOS 项目为例，开发工具为<strong>Android Studio</strong>和<strong>Xcode</strong>。</p>
 <ol>

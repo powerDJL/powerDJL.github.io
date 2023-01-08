@@ -210,7 +210,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2023-01-08 16:51:03 / 修改时间：17:03:26" itemprop="dateCreated datePublished" datetime="2023-01-08T16:51:03+08:00">2023-01-08</time>
+              <time title="创建时间：2023-01-08 16:51:03 / 修改时间：18:27:04" itemprop="dateCreated datePublished" datetime="2023-01-08T16:51:03+08:00">2023-01-08</time>
             </span>
 
           
@@ -246,34 +246,14 @@
 
       
           <p>以为bigfun flutter 项目为例，完成一个登录的插件的制作过程插件功能：为bigfun flutter项目提供登录能力。（由于登录部分为主站提供的原生SDK，所以将这部分打包成为一个flutter的插件，为flutter项目提供登录功能）重点在原生与dart之间的交互，例子中都使用MethodChannel来实现交互。</p>
-<p>前期准备：主站提供的登录相关SDK有几十个静态.a文件和几十个头文件组成，提供登录及web网页的支付功能。</p>
-<p>以iOS 项目为例，开发工具为<strong>Android Studio</strong>和<strong>Xcode</strong>。</p>
-<ol>
-<li>新建一个flutter project ，选择plugin类型。<br><em>平台语言可以根据需要选择。</em></li>
-</ol>
-<p><img data-src="https://s2.loli.net/2023/01/08/zHuBxil2yVoTO3d.png" alt="1"></p>
-<p><img data-src="https://s2.loli.net/2023/01/08/nluUzImM6GphoQK.png" alt="2"></p>
-<p>2、添加原生部分代码，和前期准备好的SDK。<br>在BilibiliLoginPlugin中，去实现原生对应的调用逻辑。在 bilibili_login.dart 中实现dart部分的调用逻辑，他们之间用MethodChannel 通讯</p>
-<p><img data-src="https://s2.loli.net/2023/01/08/3Yf9mxzaksSpJXL.png" alt="3"></p>
-<p>3、中找到  **. podspec 文件进行配置<br>根据实际情况添加</p>
-<blockquote>
-<p>s.public_header_files &#x3D; ‘Classes&#x2F;**&#x2F;*.h’<br>s.vendored_libraries &#x3D; ‘Classes&#x2F;**&#x2F;*.a’<br>s.static_framework &#x3D; true<br>#如果需要依赖第三方库，可以添加类似以下的语句，pod会自动安装依赖s.dependency ‘Flutter’</p>
-</blockquote>
-<p>4、flutter plugin 本地调用。需要在调用项目的pubspec.yaml文件里添加。根据插件所在位置输入正确的path。以下为例：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dependencies:  </span><br><span class="line">  flutter:    </span><br><span class="line">    sdk: flutter</span><br><span class="line">  bilibili_login:    </span><br><span class="line">    path: ../</span><br></pre></td></tr></table></figure>
-<h6 id="以下是测试插件的可用性"><a href="#以下是测试插件的可用性" class="headerlink" title="以下是测试插件的可用性"></a>以下是测试插件的可用性</h6><p>1、在终端命令行进入example 目录的ios文件夹。运行  pod install。<br>接下来需要在Xcode中进行一些设置<br>a.用Xcode打开Runner.xcworkspace。<br>b.添加必要的系统framework，这些都是登录SDK需要的。</p>
-<p><img data-src="https://s2.loli.net/2023/01/08/UDWncz6qTxZwPgA.png" alt="4"></p>
-<p>c.正确设置开发者账号信息</p>
-<p><img data-src="https://s2.loli.net/2023/01/08/D3dHtE2BmKkxZlu.png" alt="5"></p>
-<p>2、设置完成后，转到Android Studio ，在example项目中可以修改main.dart导入插件</p>
-<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&#x27;package:bilibili_login/bilibili_login.dart&#x27;</span>; </span><br></pre></td></tr></table></figure>
-<p>修改代码，加入调用测试的部分。<br>在调用测试之前，需要在插件的 dart文件中实现需要调用的方法。现在可以在 Android Studio或者Xcode中 运行项目 进行测试，调试。</p>
-<p>至此，一个插件基本制作就完成了。如果不引用静态sdk，设置会简单很多。</p>
-<p>参考文档：</p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://docs.flutter.dev/development/packages-and-plugins/developing-packages">https://docs.flutter.dev/development/packages-and-plugins/developing-packages</a><br><a target="_blank" rel="noopener" href="https://docs.flutter.dev/development/add-to-app/ios/project-setup#local-network-privacy-permissions">https://docs.flutter.dev/development/add-to-app/ios/project-setup#local-network-privacy-permissions</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/meegomeego/article/details/19343423">https://blog.csdn.net/meegomeego/article/details/19343423</a><br><a target="_blank" rel="noopener" href="https://developer.apple.com/library/archive/qa/qa1490/_index.html">https://developer.apple.com/library/archive/qa/qa1490/_index.html</a></p>
-</blockquote>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/01/08/%E5%88%B6%E4%BD%9Cflutter%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%8F%92%E4%BB%B6/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -506,7 +486,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-01-08 18:18:57" itemprop="dateModified" datetime="2023-01-08T18:18:57+08:00">2023-01-08</time>
+                <time title="修改时间：2023-01-08 18:25:24" itemprop="dateModified" datetime="2023-01-08T18:25:24+08:00">2023-01-08</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -550,108 +530,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><img data-src="https://s2.loli.net/2023/01/06/KFihSgu6wZ1XN5B.png"></p>
-<h5 id="Absolute-paths"><a href="#Absolute-paths" class="headerlink" title="Absolute paths"></a>Absolute paths</h5><p>Useful for frameworks installed in shared locations. Example:<br>Install path: &#x2F;Library&#x2F;Frameworks&#x2F;Foo.framework&#x2F;Versions&#x2F;A&#x2F;Foo</p>
-<h5 id="executable-path"><a href="#executable-path" class="headerlink" title="@executable_path"></a>@executable_path</h5><p><strong>-这个变量表示可执行程序所在的目录.</strong></p>
-<p>Useful for frameworks embedded inside applications, because it allows you to specify the location of the framework relative to the application’s executable:</p>
-<ul>
-<li>Install path: @executable_path&#x2F;..&#x2F;Frameworks&#x2F;Foo.framework&#x2F;Versions&#x2F;A&#x2F;Foo</li>
-<li>Application location: &#x2F;Applications&#x2F;Foo.app</li>
-<li>Executable path: &#x2F;Applications&#x2F;Foo.app&#x2F;Contents&#x2F;MacOS</li>
-<li>Framework location: &#x2F;Applications&#x2F;Foo.app&#x2F;Contents&#x2F;Frameworks&#x2F;Foo.framework</li>
-<li>Linker puts all this together to figure out that the framework binary can be found at: &#x2F;Applications&#x2F;Foo.app&#x2F;Contents&#x2F;MacOS&#x2F;..&#x2F;Frameworks&#x2F;Foo.framework&#x2F;Versions&#x2F;A&#x2F;Foo</li>
-</ul>
-<h5 id="loader-path"><a href="#loader-path" class="headerlink" title="@loader_path"></a>@loader_path</h5><p><strong>-这个变量表示每一个被加载的 binary (包括App, dylib, framework, plugin等) 所在的目录，对于framework内置模块或plugin特别适合。</strong><br>Available from Mac OS X 10.4 Tiger onwards; useful for frameworks embedded inside plug-ins, because it allows you to specify the location of the framework relative to the plug-in’s code (remember, plug-ins may not actually know where they are going to be installed, relative to the application, so knowing @executable_path doesn’t help us in this case):</p>
-<ul>
-<li>Install path: @loader_path&#x2F;..&#x2F;Frameworks&#x2F;Foo.framework&#x2F;Versions&#x2F;A&#x2F;Foo</li>
-<li>Application location: &#x2F;Applications&#x2F;Foo.app</li>
-<li>Plug-in location: &#x2F;Library&#x2F;Application Support&#x2F;Foo&#x2F;Plug-Ins&#x2F;Bar.bundle</li>
-<li>Executable path: &#x2F;Applications&#x2F;Foo.app&#x2F;Contents&#x2F;MacOS</li>
-<li>Loader path: &#x2F;Library&#x2F;Application Support&#x2F;Foo&#x2F;Plug-Ins&#x2F;Bar.bundle&#x2F;Contents&#x2F;MacOS</li>
-<li>Framework location: &#x2F;Library&#x2F;Application Support&#x2F;Foo&#x2F;Plug-Ins&#x2F;Bar.bundle&#x2F;Contents&#x2F;Frameworks&#x2F;Foo.framework</li>
-<li>Linker puts all this together to figure out that the framework binary can be found at: &#x2F;Library&#x2F;Application Support&#x2F;Foo&#x2F;Plug-Ins&#x2F;Bar.bundle&#x2F;Contents&#x2F;MacOS&#x2F;..&#x2F;Frameworks&#x2F;Foo.framework&#x2F;Versions&#x2F;A&#x2F;Foo</li>
-<li>Note that if the “loader” is an application rather than a plug-in, the @loader_path ends up being equivalent to @executable_path.</li>
-</ul>
-<h5 id="rpath"><a href="#rpath" class="headerlink" title="@rpath"></a>@rpath</h5><p><strong>-运行路径，通常用于设置动态库的Install Name，需要同时在调用应用中设置好rpath。</strong><br>和前面两个不同，它只是一个保存着一个或多个路径的变量。比如 XPSSO.dylib 被两个.app 使用，且被包含的路径不同。</p>
-<ol>
-<li>对于被当成第三方库使用的dylib或Framework，本身Install name可以设置为包含@rpath的值，这个@rpath其实是一个变量</li>
-<li>对于动态库的使用者，可以通过设置Runpath Search Paths指定多个值，这些值在运行时会用于替代动态库自己设置的@rpath来查找动态库</li>
-</ol>
-<p>New in Mac OS X 10.5 Leopard is @rpath. Key points:</p>
-<ul>
-<li>@rpath instructs the dynamic linker to search a list of paths in order to locate the framework</li>
-<li>critically, this list is embedded in the loading application</li>
-<li>this means that a single framework with @rpath&#x2F;Foo.framework&#x2F;Versions&#x2F;A&#x2F;Foo can be made to work in a number of different ways; that is, you are effectively no longer limited by the choice of specifying your “install path” using either @executable_path or @loader_path</li>
-<li>the down side: you now have to pass additional linker flags when building the host application (eg. -rpath @executable_path&#x2F;..&#x2F;Frameworks or &#x2F;Library&#x2F;Frameworks; note that specifying both will cause the dynamic linker to try looking in both locations)</li>
-</ul>
-<h6 id="Xcode-Search-Paths相关配置："><a href="#Xcode-Search-Paths相关配置：" class="headerlink" title="Xcode Search Paths相关配置："></a>Xcode Search Paths相关配置：</h6><p>开发的过程当中，导入第三方库(framework&#x2F;.a)或者下载使用别人的demo会经常会遇到一些关于库的导入的问题。而导入第三方库后，这写库的路径应该现在在导入当前项目target的Search Paths中，具体的设置路径：target -&gt; Build Settings -&gt; Search Paths -&gt; Framework Search Paths 或者 Library Search Paths， 头文件在改配置中的Header Search Paths管理。<br>Framework Search Paths 管理导入的*.framework的路径<br>Library Search Paths 管理导入的*.a的路径<br>Header Search Paths 管理导入的头文件的路径</p>
-<h6 id="Search-Paths相关参数说明"><a href="#Search-Paths相关参数说明" class="headerlink" title="Search Paths相关参数说明"></a>Search Paths相关参数说明</h6><ol>
-<li>导入库的时候自动生成的的路径：$(PROJECT_DIR)&#x2F;XcodeForSeachPathTest&#x2F;ThirdLib&#x2F;zhenLib，手动拖拽的路径”$(SRCROOT)&#x2F;..&#x2F;Frameworks&#x2F;zhenFW&#x2F;zhenFW.framework”，很明显的区别是手动拖得有双引号，双引号的作用是如果在路径中有空格，可以识别该路径。没有双引号但是路径中有空格，我们发现它会自动变成两个路径。</li>
-<li>路径中有空格必须要加双引号</li>
-<li>多个路径可以用空格隔开，不用双引号包住</li>
-<li>$(SRCROOT)&#x2F; $(PROJECT_DIR)基本没啥区别，都是指向*.xcodeproj所在的路径</li>
-<li>通过..&#x2F;来调到上一层路径,返回上上层文件夹用..&#x2F;..&#x2F;</li>
-<li>$(inherited)： target 的 Framework Search Paths添加$(inherited)参数会从PROJECT -&gt; Build Settings -&gt; Framework Search Paths里面的路径会被其继承，没有的话不会继承。所以一个项目里面有多个target，使用到了同一个库(Library或Framework)那么为了方便我们可以在target添加继承参数，并且PROJECT统一中添加库的路径。<br>继承的优先级：</li>
-</ol>
-<ul>
-<li>Platform defaults</li>
-<li>Project file (描述举例用这个优先级，比较常用)</li>
-<li>xcconfig file for the Project file</li>
-<li>Target</li>
-<li>xcconfig file for the Target</li>
-</ul>
-<ol start="7">
-<li><p>recursive：遍历该目录，non-recursive：默认路径设置；不遍历该目录。如果路径的属性为recursive，那么编译的时候在找库的路径的时候，会遍历该目录下的所有子目录的库文件。PS：在搭建项目            的时候，可以创建一个专门放库文件的文件夹并且设置其属性为recursive。$(PROJECT_DIR)&#x2F;**相当于遍历项目文件同级下的所有路径(不推荐使用，项目大的话，影响编译的速度)。</p>
-</li>
-<li><p>Search Paths子选项：Header Search Paths 、User Header Search Paths的参数设置与其相同</p>
-</li>
-</ol>
-<p>XCode用户可以 通过Header Search Paths 来配置环境变量。但这里涉及到一个另外一个参数 User Header Search Paths， 这两者到底有什么区别呢？<br>首先明确一点，Header Search Paths 顾名思义就是用来存放 Project 中头文件的搜索根源，没有被add到项目里的头文件，可以通过配置Header Search Paths 来引入头文件，这样的好处可以不让project 包含的文件太多，便于管理。</p>
-<ul>
-<li>浅显一点的区别是，编码时候通过 #include 引入头文件的方式有两种 &lt;&gt; 和 “”。&lt;&gt; 是只从 Header Search Paths 中搜索， 而 “” 则能从  Header Search Paths 和  User Header Search Paths 中搜索。换言之 ，假如你把 路径加到  User Header Search Paths 中，那么 你用 #include &lt;file.h&gt; 的方式去引入对应的头文件，就会报错。 如果加到  Header Search Paths,  就没有问题了。</li>
-<li>具体一点的区别是，&lt;&gt; 是从系统目录空间 （对应 Header Search Paths）中搜索文件， “” 是从用户目录空间（对应 User Header Search Paths）中搜索文件。如果你把路径加到 User Header Search Paths 中，而 &lt;&gt; 无法从系统目录空间中找到新加的路径，从而报错。</li>
-</ul>
-<p>所以在修改User Header Search Paths这个选项的时候使用”$(SRCROOT)&#x2F;当前工程名字&#x2F;需要包含头文件所在文件夹”<br>将上面的双引号里面的字符串拷贝之后，你会发现这个“$(SRCROOT)”，会自动变成当前工程所以的目录。<br>这样就可以了，发给别人，别人也不用在去修改路径了。</p>
-<hr>
-<p><strong>1.c&#x2F;c++ 头文件引用问题</strong><br>include &lt;&gt; 引用编译器的类库路径下的头文件<br>include “” 引用工程目录的相对路径的头文件<br>include 是编译指令，在编译时，编译器会将相对路径替换成绝对路径，因此，头文件绝对路径&#x3D;搜索路径+相对路径。<br>Xcode Build Settings 下 Search Paths设置搜索路径<br>Header Search Paths:头文件搜索路径设置<br>$(SRCROOT)宏和$(PROJECT_DIR)宏都指xxx.xcodeproj所在的父目录<br>例如：引用工程testDemo&#x2F;scr&#x2F;test.h 头文件，<br>Header Search Paths中添加$(SRCROOT),引用为include “scr&#x2F;test.h”<br>如果在Header Search Paths中添加$(SRCROOT)&#x2F;scr,那么头文件引用直接引用 include “test.h”</p>
-<p>Project的Building Settings中得设置默认并不被Targets继承，只有当Targets的设置加入了$(inherited)时才被继承，添加目录的时候写上 “$(inherited)” 就表示从frameworks里面读取。<br>一种很常见的情况， 我建一个工程运行正常，但是把工程发给别人就会出现这个错误，这也是XcodeSearch Path的相对路径和绝对路径导致的。<br>所以在修改Library &#x2F; Header Search Paths这个选项的时候使用:  “$(SRCROOT)&#x2F;当前工程名字&#x2F;需要包含头文件所在文件夹”</p>
-<p>将上面的双引号里面的字符串拷贝之后，你会发现这个“$(SRCROOT)”，会自动变成当前工程所以的目录。这样就可以了，发给别人，别人也不用在去修改路径了。</p>
-<hr>
-<h5 id="Xcode添加静态库以及编译选项配置常见问题"><a href="#Xcode添加静态库以及编译选项配置常见问题" class="headerlink" title="Xcode添加静态库以及编译选项配置常见问题"></a>Xcode添加静态库以及编译选项配置常见问题</h5><p><strong>一，Xcode编译出现Link错误,出现”duplicate symbols for architecture i386 clang”提示.</strong><br>问题:链接时,项目有重名文件.<br>解决:<br>根据错误提示,做如下检查:<br>1.Taraget-&gt;Build Settings-&gt;Link Binary With Libraries检查是否有重复lib.<br>2.全工程搜索下重名文件,决定如何删除.<br><strong>二,关于Category位于静态库时,引用该静态库的工程使用Category,出现”unrecognized selector sent to class”提示.</strong><br>问题:标准UNIX静态库与Objective-C之间Linker的差异.在标准的UNIX静态库内,linker symbol是依照每一个类别而产生的,但由于Category并没有真正产生一个类别,所以出错.<br>解决:</p>
-<ol>
-<li>在该静态库的Taraget-&gt;Build Settings-&gt;Other Linker Flags-&gt;加上 -ObjC.</li>
-<li>在使用该静态库的工程Taraget-&gt;Build Settings-&gt;Other Linker Flags-&gt;加上-all_load或-force_load.</li>
-</ol>
-<p><strong>三,编译warning：ld: warning: directory not found for option ‘-L’.</strong><br>问题:通常是Path问题.<br>解决:<br>Taraget-&gt;Build Settings-&gt;Library Search Paths 和 Framework Search Paths,删掉编译报warning的路径即OK</p>
-<p><strong>四,引入(带源码的)静态库所需配置.</strong><br>步骤:<br>1.Add Files to.. 加入静态库的.xcodeproj 文件,不要勾选Copy Items.. 选项。(可以先把源代码项目先复制到使用项目文件夹下)<br>2.Target-&gt;Build Phases-&gt;Target Dependecies-&gt;加静态库 &amp;&amp; Link Binary With Libraries-&gt;加静态库.<br>3.配置静态库头文件路径,在Taraget-&gt;Build Settings-&gt;User Header Search Paths-&gt;配上静态库的物理路径.<br>[错误tips: 若出现加入的.xcodeproj无法展开,则在Xcode中关闭静态库项目即可]<br>PS:只有.a 和 .h的静态库,则直接拖入项目即可。</p>
-<p><strong>五,关于重构,解决跨层调用问题</strong></p>
-<p>常用选择:</p>
-<ol>
-<li>传参(包括静态变量的使用)</li>
-<li>传回调</li>
-<li>直接移动调用的代码(若代码出现在不适合的地方,移动类&#x2F;方法&#x2F;etc)</li>
-</ol>
-<blockquote>
-<p>之所以使用该标志，和Objective-C的一个重要特性：类别（category)有关。根据这里的解释，Unix的标准静态库实现和Objective-C的动态特性之间有一些冲突：Objective-C没有为每个函数（或者方法）定义链接符号，它只为每个类创建链接符号。这样当在一个静态库中使用类别来扩展已有类的时候，链接器不知道如何把类原有的方法和类别中的方法整合起来，就会导致你调用类别中的方法时，出现”selector not recognized”，也就是找不到方法定义的错误。为了解决这个问题，引入了-ObjC标志，它的作用就是将静态库中所有的和对象相关的文件都加载进来。<br> 本来这样就可以解决问题了，不过在64位的Mac系统或者iOS系统下，链接器有一个bug，会导致只包含有类别的静态库无法使用-ObjC标志来加载文件。变通方法是使用-all_load 或者-force_load标志，它们的作用都是加载静态库中所有文件，不过all_load作用于所有的库，而-force_load后面必须要指定具体的文件。</p>
-</blockquote>
-<h6 id="pch（prefix-header）设置"><a href="#pch（prefix-header）设置" class="headerlink" title="pch（prefix header）设置"></a>pch（prefix header）设置</h6><p>如何添加pch文件呢？</p>
-<ul>
-<li>向项目中添加新文件，在Other中选择PCH File:</li>
-<li>设置pch文件的路径。</li>
-<li><pre><code>        target -&gt;Build Setting ，向搜索框输入prefix header：
-</code></pre>
-</li>
-<li>设置Precomplite Prefix Header 的布尔值为true,<br>      作用是让pch文件预编译后缓存起来，减少之后的编译时间</li>
-<li>设置Prefix Header的值为：<br>       $SRCROOT&#x2F;（你的项目名称）&#x2F;（你的pch文件名称）<br>       如：$(SRCROOT)&#x2F;GIFMaker&#x2F;GIFPrefixHeader.pch</li>
-<li>也可以直接把pch文件拖进来，但是这是绝对路径，到另外一个项目回报错</li>
-<li>其中的变量SRCROOT的值为你项目所在的根目录，<br> 它会随着你项目的目录迁移而自动改变。</li>
-</ul>
-<p><em><strong>导入cocoaPods后的文件路径问题—CocoaPods导入第三方库，提示找不到头文件的解决方法</strong></em></p>
-<p>通过cocoaPods倒入框架后；找到TARGETS -&gt; Build Settings -&gt; SearchPaths -&gt; User Header Search Paths  在后面的空白处双击；在Header search path中新增一个值”$(PODS_ROOT)”,并且选择”recursive”，这样Xcode就会在项目目录中递归搜索文件且会自动找到Pods文件,头文件自动补齐功能马上就好使了.</p>
-<p><em><strong>项目里有该文件，但是还是显示找不到。或者是cocopods打开的项目。</strong></em></p>
-<p>原因：.h文件路径找不到。具体找不到的原因有很多种。<br>可能pods 的头文件找不到<br>#import “Reachability.h”找不到<br>首先找到下面配置文件：<br>Reachability-Private.xcconfig<br> 查看里面内容：<br>#include “Reachability.xcconfig”<br>GCC_PREPROCESSOR_DEFINITIONS &#x3D; $(inherited) COCOAPODS&#x3D;1<br>HEADER_SEARCH_PATHS &#x3D; “${PODS_ROOT}&#x2F;Headers&#x2F;Private” “${PODS_ROOT}&#x2F;Headers&#x2F;Private&#x2F;Reachability” “${PODS_ROOT}&#x2F;Headers&#x2F;Public” “${PODS_ROOT}&#x2F;Headers&#x2F;Public&#x2F;MKNetworkKit” “${PODS_ROOT}&#x2F;Headers&#x2F;Public&#x2F;MKNetworkKit&#x2F;Categories” “${PODS_ROOT}&#x2F;Headers&#x2F;Public&#x2F;Reachability”<br>OTHER_LDFLAGS &#x3D; ${REACHABILITY_OTHER_LDFLAGS}<br>PODS_ROOT &#x3D; ${SRCROOT}<br>SKIP_INSTALL &#x3D; YES<br>上面标红的地址，去文件夹看看相应路径是否存在该文件，经常是在别的文件夹下面。</p>
-<p><em>整理参考<br>链接 ：</em><br><a target="_blank" rel="noopener" href="https://wincent.com/wiki/%40executable_path%2C_%40load_path_and_%40rpath">https:&#x2F;&#x2F;wincent.com&#x2F;wiki&#x2F;@executable_path,<em>@load_path_and</em>@rpath</a><br><a target="_blank" rel="noopener" href="https://www.suninf.net/2015/06/xcode-build-and-paths-config.html">https://www.suninf.net/2015/06/xcode-build-and-paths-config.html</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/u011146511/article/details/77198330">https://blog.csdn.net/u011146511/article/details/77198330</a></p>
-
+          <p><img data-src="https://s2.loli.net/2023/01/06/KFihSgu6wZ1XN5B.png"><br>主要介绍了各种路径标识的具体含义，还有遇到的常见问题</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/01/05/Xcode%E4%B8%AD%E5%BA%93%E7%9A%84%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -701,7 +588,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-01-08 18:18:31" itemprop="dateModified" datetime="2023-01-08T18:18:31+08:00">2023-01-08</time>
+                <time title="修改时间：2023-01-08 18:29:08" itemprop="dateModified" datetime="2023-01-08T18:29:08+08:00">2023-01-08</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -747,13 +634,14 @@
       
           <p>用ssh访问gitlab时出现错误,反复检查发现publickey没有问题。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git@ops-gitlab.xxxx.com: Permission denied (publickey).</span><br><span class="line">fatal: Could not read from remote repository.</span><br><span class="line"></span><br><span class="line">Please make sure you have the correct access rights</span><br><span class="line">and the repository exists.</span><br></pre></td></tr></table></figure>
-<p><strong>定位ssh错误</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-&gt;ssh -Tvvv git@ops-gitlab.xxxx.com</span><br><span class="line">...</span><br><span class="line">debug1: send_pubkey_test: no mutual signature algorithm</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<p>openssh默认不再支持ssh-rsa算法啦，说是该算法存在安全隐患， 具体可以看看这个新闻：<a target="_blank" rel="noopener" href="https://www.zdnet.com/article/openssh-to-deprecate-sha-1-logins-due-to-security-risk/">OpenSSH to deprecate SHA-1 logins due to security risk | ZDNet</a><br>当然我们可以重新启用ssh-rsa,但存在安全风险。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/ssh/ssh_config</span><br><span class="line">#添加内容</span><br><span class="line">PubkeyAcceptedKeyTypes +ssh-rsa</span><br></pre></td></tr></table></figure>
-
-<iframe src="//player.bilibili.com/player.html?aid=519986107&bvid=BV1Lg411s7G1&cid=954547920&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/01/05/ssh-rsa%E9%AA%8C%E8%AF%81%E5%A4%B1%E8%B4%A5-no-mutual-signature-algorithm/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -803,7 +691,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-01-08 18:12:49" itemprop="dateModified" datetime="2023-01-08T18:12:49+08:00">2023-01-08</time>
+                <time title="修改时间：2023-01-08 18:27:55" itemprop="dateModified" datetime="2023-01-08T18:27:55+08:00">2023-01-08</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -847,22 +735,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><strong>framwork</strong>的开发人员可为了方便打包与发行，常常将i386,x86_64,armv7,arm64多种模式混合起来一起打包<br><strong>Xcode 11</strong> 之前<br>查看framwork有包含几种架构</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lipo -info xxx.framework/xxxxFramework</span><br></pre></td></tr></table></figure>
-<p>合并两个framework的架构，如果有包含重复的架构，会合并失败。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lipo -create XXXX.framework/XXXX-armv7 XXXX.framework/XXXX-arm64 -output XXXX.framework/XXXX</span><br></pre></td></tr></table></figure>
-<p>分离不需要的架构</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">lipo XXXX.framework/XXXX -thin arm64 -output XXXX.framework/XXXX-arm64</span><br><span class="line">lipo XXXX.framework/XXXX -thin armv7 -output XXXX.framework/XXXX-armv7</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">lipo -create /Users/xxx/Dev/libme/bin/iphoneos/libmecli.a /Users/xxx/Dev/libme/bin/Debug-iphonesimulator/libmecli.a -output /Users/xxxx/Dev/libme/bin/libmecli.a</span><br></pre></td></tr></table></figure>
-<p>在<strong>Xcode 11</strong>之后，以上合并的方法打出的framework包已无法编译了，会报错</p>
-<blockquote>
-<p>Building for iOS Simulator, but the linked and embedded framework was built for iOS + iOS Simulator </p>
-</blockquote>
-<p><a target="_blank" rel="noopener" href="https://developer.apple.com/forums/thread/669411?answerId=652663022#652663022"><code>Apple社区相关问题解答</code></a></p>
-<p>Apple tries to force us to use XCFrameworks for this purpose. They started it in XCode 11 and just tightened up the restrictions.<br>可以用以下方式，打出一个混合framework</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcrun xcodebuild -create-xcframework -framework /path/to/ios.framework -framework /path/to/sim.framework -output combined.xcframework</span><br></pre></td></tr></table></figure>
-<p>如果合并时报错 No ‘swiftinterface’ files found within ‘…&#x2F;xxxx.framework&#x2F;Modules&#x2F;xxxx.swiftmodule’<br>使用以上命令合并的framework 需要在Xcode 里，将targets -&gt; build Settings 中 BUILD_LIBRARY_FOR_DISTRIBUTION 设置为YES 。<br>这样build出的framework才能用以上命令合并成功。</p>
-<p>静态.a 文件的合并</p>
-
+          <p><strong>framwork</strong>的开发人员可为了方便打包与发行，常常将i386,x86_64,armv7,arm64多种模式混合起来一起打包</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/01/05/iOS-framework%E5%88%86%E7%A6%BB%E4%B8%8E%E5%90%88%E5%B9%B6/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
