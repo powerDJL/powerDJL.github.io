@@ -206,7 +206,7 @@
 <p><img data-src="https://s2.loli.net/2023/01/08/3Yf9mxzaksSpJXL.png" alt="3"></p>
 <p>3、中找到  **. podspec 文件进行配置<br>根据实际情况添加</p>
 <blockquote>
-<p>s.public_header_files &#x3D; ‘Classes&#x2F;<strong>&#x2F;*.h’s.vendored_libraries &#x3D; ‘Classes&#x2F;</strong>&#x2F;*.a’<br>s.static_framework &#x3D; true<br>#如果需要依赖第三方库，可以添加类似以下的语句，pod会自动安装依赖s.dependency ‘Flutter’</p>
+<p>s.public_header_files &#x3D; ‘Classes&#x2F;**&#x2F;*.h’<br>s.vendored_libraries &#x3D; ‘Classes&#x2F;**&#x2F;*.a’<br>s.static_framework &#x3D; true<br>#如果需要依赖第三方库，可以添加类似以下的语句，pod会自动安装依赖s.dependency ‘Flutter’</p>
 </blockquote>
 <p>4、flutter plugin 本地调用。需要在调用项目的pubspec.yaml文件里添加。根据插件所在位置输入正确的path。以下为例：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">dependencies:  </span><br><span class="line">  flutter:    </span><br><span class="line">    sdk: flutter</span><br><span class="line">  bilibili_login:    </span><br><span class="line">    path: ../</span><br></pre></td></tr></table></figure>
